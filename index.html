@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionnaire de Cargaisons</title>
+    <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <h1>🚢 Gestionnaire de Cargaisons</h1>
+            <p>Gérez vos transports aériens, maritimes et routiers</p>
+        </header>
+
+        <main class="main-container">
+            <!-- Section création de cargaison -->
+            <section class="card">
+                <h2>📦 Créer une Cargaison</h2>
+                <form id="cargaison-form" class="form">
+                    <div class="form-group">
+                        <label for="transport-type">Type de transport :</label>
+                        <select id="transport-type" required>
+                            <option value="">Sélectionnez un type</option>
+                            <option value="aerienne">✈️ Aérienne</option>
+                            <option value="maritime">🚢 Maritime</option>
+                            <option value="routiere">🚛 Routière</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="distance">Distance (km) :</label>
+                        <input type="number" id="distance" min="1" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Créer la cargaison</button>
+                </form>
+            </section>
+
+            <!-- Section ajout de produit -->
+            <section class="card" id="produit-section" style="display: none;">
+                <h2>📋 Ajouter un Produit</h2>
+                <form id="produit-form" class="form">
+                    <div class="form-group">
+                        <label for="produit-type">Type de produit :</label>
+                        <select id="produit-type" required>
+                            <option value="">Sélectionnez un type</option>
+                            <option value="alimentaire">🍎 Alimentaire</option>
+                            <option value="chimique">⚗️ Chimique</option>
+                            <option value="fragile">📱 Matériel Fragile</option>
+                            <option value="incassable">🔧 Matériel Incassable</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="libelle">Libellé :</label>
+                        <input type="text" id="libelle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="poids">Poids (kg) :</label>
+                        <input type="number" id="poids" min="0.1" step="0.1" required>
+                    </div>
+                    <div class="form-group" id="toxicite-group" style="display: none;">
+                        <label for="toxicite">Degré de toxicité (1-10) :</label>
+                        <input type="number" id="toxicite" min="1" max="10">
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Ajouter le produit</button>
+                </form>
+            </section>
+
+            <!-- Section affichage de la cargaison -->
+            <section class="card" id="cargaison-display" style="display: none;">
+                <h2>📊 Ma Cargaison</h2>
+                <div id="cargaison-info" class="cargaison-info"></div>
+                <div id="produits-list" class="produits-list"></div>
+                <div id="total-frais" class="total-frais"></div>
+                <button id="reset-btn" class="btn btn-danger">🔄 Nouvelle cargaison</button>
+            </section>
+        </main>
+
+        <!-- Zone de notifications -->
+        <div id="notifications" class="notifications"></div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

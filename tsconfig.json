@@ -1,13 +1,19 @@
 {
   "compilerOptions": {
     "target": "es2016",
-    "module": "commonjs",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "outDir": "./dist", 
     "rootDir": "./src",  
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "lib": ["DOM", "DOM.Iterable", "ES6"]
   },
   "include": ["src/**/*.ts"], 
   "exclude": ["node_modules"]
